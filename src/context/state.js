@@ -9,18 +9,20 @@ export const Context = createContext();
 const stateContext = ({ children }) => {
   const initialState = {
     popular: [],
+    token: "",
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const getPopularMovies = async () => {
+    console.log("%c getPopularMovies", "red");
     try {
       const { data } = await axios(
         `${URL_API}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
       );
       dispatch({
         type: "GET_MOVIES",
-        payload: data,
+        payload: data.results,
       });
     } catch (error) {
       console.log(error);
@@ -29,9 +31,58 @@ const stateContext = ({ children }) => {
   const test = () => {
     console.log("test");
   };
+  const createToken = async () => {
+    try {
+      const { data } = await axios(
+        `https://api.themoviedb.org/3/authentication/token/new?api_key=${API_KEY}`
+      );
+      dispatch({
+        type: "GET_TOKEN",
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const askUserPermission = async (token) => {
+    try {
+      //*de9b0c1b2fac8532998d370829655e0713af189d
+      // const { data } = await axios(
+      //   `https://www.themoviedb.org/authenticate/${token}`
+      // );
+      /**/
+      const data = {
+        request_token: token,
+        username: "johnny_appleseed",
+        password: "test123",
+      };
+      const yourUrl =
+        "https://www.themoviedb.org/authenticate/de9b0c1b2fac8532998d370829655e0713af189d";
+
+      fetch(`https://www.themoviedb.org/authenticate/${token}`)
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
+
+      // dispatch({
+      //   type: "ASK_PERMISSION",
+      //   payload: data,
+      // });
+
+      /**/
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Context.Provider
-      value={{ popular: state.popular, getPopularMovies, test }}
+      value={{
+        popular: state.popular,
+        token: state.token,
+        getPopularMovies,
+        test,
+        createToken,
+        askUserPermission,
+      }}
     >
       {children}
     </Context.Provider>

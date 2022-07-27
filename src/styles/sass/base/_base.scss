@@ -1,0 +1,16 @@
+body{
+    font-family: $primary-ff, $secondar-ff;
+    font-size: $md-heading;
+  }
+  
+  #{$a-tags} {
+    text-decoration: none;
+    color: $white-color;
+  }
+ 
+  li{
+    list-style: none;
+  }
+  @mixin movie_card(){
+    border: 1px solid black;
+  }

@@ -9,6 +9,11 @@ export default (state, action) => {
         ...state,
         popular: payload,
       };
+    case "GET_TOKEN":
+      return {
+        ...state,
+        token: payload,
+      };
     default:
       return state;
   }
