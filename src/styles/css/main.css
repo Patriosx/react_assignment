@@ -55,19 +55,23 @@ li {
 
 .card-container {
   width: 150px;
-  border: 1px solid #6C757D;
   border-radius: 10px;
+  overflow: hidden;
   cursor: pointer;
   font-size: 16px;
+  box-shadow: 0px 0px 11px 3px rgba(148, 148, 148, 0.18);
+}
+.card-container p {
+  margin: 0;
+}
+.card-container:hover {
+  box-shadow: 10px 0px 11px 3px rgba(148, 148, 148, 0.88);
+  transition: 0.6s all;
 }
 .card-container .img-container {
   display: flex;
 }
-.card-container * {
-  margin: 0;
-}
 .card-container img {
-  border-radius: 10px 10px 0 0;
   width: 100%;
 }
 .card-container .card-title {
@@ -79,4 +83,14 @@ li {
 }
 .card-container .card-content {
   padding: 10px;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card-container .label_popularity {
+  margin-top: 0.5rem;
+}
+.card-container .label_popularity span {
+  margin-left: 5px;
 }/*# sourceMappingURL=main.css.map */

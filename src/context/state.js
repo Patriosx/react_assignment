@@ -79,7 +79,6 @@ const stateContext = ({ children }) => {
       type: "SELECT_MOVIE",
       payload: movie,
     });
-    console.log(state.movieSelected);
   };
   return (
     <Context.Provider

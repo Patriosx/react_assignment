@@ -17,7 +17,7 @@ export default (state, action) => {
     case "SELECT_MOVIE":
       return {
         ...state,
-        selectedMovie: payload,
+        movieSelected: payload,
       };
     default:
       return state;
