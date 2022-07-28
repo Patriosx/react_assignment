@@ -14,6 +14,11 @@ export default (state, action) => {
         ...state,
         token: payload,
       };
+    case "SELECT_MOVIE":
+      return {
+        ...state,
+        selectedMovie: payload,
+      };
     default:
       return state;
   }

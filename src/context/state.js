@@ -10,6 +10,7 @@ const stateContext = ({ children }) => {
   const initialState = {
     popular: [],
     token: "",
+    movieSelected: {},
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -73,15 +74,24 @@ const stateContext = ({ children }) => {
       console.log(error);
     }
   };
+  const selectMovie = (movie) => {
+    dispatch({
+      type: "SELECT_MOVIE",
+      payload: movie,
+    });
+    console.log(state.movieSelected);
+  };
   return (
     <Context.Provider
       value={{
         popular: state.popular,
         token: state.token,
+        movieSelected: state.movieSelected,
         getPopularMovies,
         test,
         createToken,
         askUserPermission,
+        selectMovie,
       }}
     >
       {children}

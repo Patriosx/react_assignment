@@ -1,0 +1,27 @@
+.card-container{
+    width: 150px;
+    border: 1px solid $text-color;
+    border-radius: 10px ;
+    cursor: pointer;
+    font-size: $sm-heading;
+    .img-container{
+        display: flex;
+    }
+    &  *{
+        margin: 0;
+    }
+    img{
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+    }
+    .card-title{
+        color: $primary-color;
+        font-weight: 600;
+    }
+    .card-date{
+        color: $text-color;
+    }
+    .card-content{
+        padding:   10px;
+    }
+}

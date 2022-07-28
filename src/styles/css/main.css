@@ -13,6 +13,15 @@ li {
   list-style: none;
 }
 
+.home-container {
+  background-color: #F8F9FA;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -42,4 +51,32 @@ li {
 
 .layout-container {
   background-color: #343A40;
+}
+
+.card-container {
+  width: 150px;
+  border: 1px solid #6C757D;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.card-container .img-container {
+  display: flex;
+}
+.card-container * {
+  margin: 0;
+}
+.card-container img {
+  border-radius: 10px 10px 0 0;
+  width: 100%;
+}
+.card-container .card-title {
+  color: #343A40;
+  font-weight: 600;
+}
+.card-container .card-date {
+  color: #6C757D;
+}
+.card-container .card-content {
+  padding: 10px;
 }/*# sourceMappingURL=main.css.map */
