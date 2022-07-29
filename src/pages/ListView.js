@@ -1,13 +1,11 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import MovieCard from "../components/MovieCard";
 
 import { Context } from "../context/state";
 
 const ShowPopularMovies = () => {
-  const { popular, getPopularMovies } = useContext(Context);
-  useEffect(() => {
-    getPopularMovies();
-  }, []);
+  const { popular } = useContext(Context);
+
   return (
     <main className={"home-container"}>
       {popular.map((movie) => {

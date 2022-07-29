@@ -8,3 +8,11 @@ export function formatDate(date) {
 
   return myDate.toLocaleDateString("en-US", options);
 }
+export function getYear(date) {
+  const myDate = new Date(date);
+  var options = {
+    year: "numeric",
+  };
+
+  return myDate.toLocaleDateString("en-US", options);
+}
