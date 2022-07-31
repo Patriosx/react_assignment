@@ -9,7 +9,7 @@ const Login = () => {
   }, []);
   useEffect(() => {
     // console.log(token);
-    console.log(loginState);
+    // console.log(loginState);
   }, [loginState]);
 
   const handleInputChange = (e) => {

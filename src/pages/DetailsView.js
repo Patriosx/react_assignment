@@ -8,9 +8,6 @@ import { Link } from "react-router-dom";
 const DetailsView = () => {
   const { movieSelected } = useContext(Context);
 
-  useEffect(() => {
-    console.log("movieSelected", movieSelected);
-  }, []);
   const movieDetailSelected = (
     <>
       <div className="img-container">
@@ -28,10 +25,7 @@ const DetailsView = () => {
         <div className="details-description">
           <p title="Vote Average">vote average: {movieSelected.vote_average}</p>
           <p title="Vote Count">votes: {movieSelected.vote_count}</p>
-          <label className="label_popularity" title="Popularity">
-            <MdOutlineThumbUpOffAlt fill="#fff" />
-            <span>{movieSelected.popularity}</span>
-          </label>
+          <p title="Popularity">popularity: {movieSelected.popularity}</p>
         </div>
         <h4>Overview</h4>
         <p className="details-overview">{movieSelected.overview}</p>

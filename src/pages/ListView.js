@@ -8,14 +8,16 @@ const ShowPopularMovies = () => {
 
   return (
     <>
-      <main className={"home-container"}>
+      <div className={"home-container"}>
         {popular.map((movie) => {
           return <MovieCard movie={movie} key={movie.id} />;
         })}
+      </div>
+      <div className="btn_container">
         <button className="btn_add-movies" onClick={nextPage}>
           ADD MORE
         </button>
-      </main>
+      </div>
     </>
   );
 };

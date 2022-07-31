@@ -6,7 +6,6 @@ import { URL_API, API_KEY } from "../../utils/contants";
 
 const usePopularMovies = () => {
   const { getPopularMovies, page } = useContext(Context);
-  console.log("%c getPopularMovies", "red");
 
   async function getPages() {
     try {
