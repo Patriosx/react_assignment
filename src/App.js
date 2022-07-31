@@ -2,14 +2,10 @@ import Layout from "./components/layout/Layout";
 import { Routes, Route } from "react-router-dom";
 import ListView from "./pages/ListView";
 import Login from "./pages/Login";
-import { Context } from "./context/state";
-import { useContext, useEffect } from "react";
 import DetailsView from "./pages/DetailsView";
+import usePopularMovies from "./components/hooks/usePopularMovies";
 function App() {
-  const { getPopularMovies } = useContext(Context);
-  useEffect(() => {
-    getPopularMovies();
-  }, []);
+  usePopularMovies();
   return (
     <div className="App">
       <Layout>

@@ -7,7 +7,12 @@ export default (state, action) => {
     case "GET_MOVIES":
       return {
         ...state,
-        popular: payload,
+        popular: [...state.popular, ...payload],
+      };
+    case "ANOTHER_PAGE":
+      return {
+        ...state,
+        page: payload,
       };
     case "GET_TOKEN":
       return {

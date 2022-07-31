@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useReducer } from "react";
 import { createContext } from "react";
 import reducer from "./reducer";
-import { URL_API, API_KEY } from "../utils/contants";
+import { API_KEY } from "../utils/contants";
 export const Context = createContext();
 
 const stateContext = ({ children }) => {
@@ -11,27 +11,32 @@ const stateContext = ({ children }) => {
     popular: [],
     token: "",
     movieSelected: {},
+    page: 1,
   };
 
+  //Global State
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const getPopularMovies = async () => {
-    console.log("%c getPopularMovies", "red");
-    try {
-      const { data } = await axios(
-        `${URL_API}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
-      );
-      dispatch({
-        type: "GET_MOVIES",
-        payload: data.results,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+  const getPopularMovies = (movies) => {
+    dispatch({
+      type: "GET_MOVIES",
+      payload: movies,
+    });
   };
-  const test = () => {
-    console.log("test");
+  const nextPage = () => {
+    //control pages: add more movies
+    dispatch({
+      type: "ANOTHER_PAGE",
+      payload: state.page + 1,
+    });
   };
+  const selectMovie = (movie) => {
+    dispatch({
+      type: "SELECT_MOVIE",
+      payload: movie,
+    });
+  };
+  //Login Page
   const createToken = async () => {
     try {
       const { data } = await axios(
@@ -57,8 +62,6 @@ const stateContext = ({ children }) => {
         username: "johnny_appleseed",
         password: "test123",
       };
-      const yourUrl =
-        "https://www.themoviedb.org/authenticate/de9b0c1b2fac8532998d370829655e0713af189d";
 
       fetch(`https://www.themoviedb.org/authenticate/${token}`)
         .then((data) => console.log(data))
@@ -74,28 +77,19 @@ const stateContext = ({ children }) => {
       console.log(error);
     }
   };
-  const selectMovie = (movie) => {
-    dispatch({
-      type: "SELECT_MOVIE",
-      payload: movie,
-    });
+
+  const contextValue = {
+    popular: state.popular,
+    token: state.token,
+    movieSelected: state.movieSelected,
+    page: state.page,
+    getPopularMovies,
+    createToken,
+    askUserPermission,
+    selectMovie,
+    nextPage,
   };
-  return (
-    <Context.Provider
-      value={{
-        popular: state.popular,
-        token: state.token,
-        movieSelected: state.movieSelected,
-        getPopularMovies,
-        test,
-        createToken,
-        askUserPermission,
-        selectMovie,
-      }}
-    >
-      {children}
-    </Context.Provider>
-  );
+  return <Context.Provider value={contextValue}>{children}</Context.Provider>;
 };
 
 export default stateContext;

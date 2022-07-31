@@ -7,11 +7,9 @@ import { BrowserRouter } from "react-router-dom";
 import ContextState from "./context/state";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    <ContextState>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </ContextState>
-  </React.StrictMode>
+  <ContextState>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ContextState>
 );
