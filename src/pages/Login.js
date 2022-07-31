@@ -4,13 +4,15 @@ const Login = () => {
   const { createToken, token, askUserPermission } = useContext(Context);
   const { request_token } = token;
   const [loginState, setLoginState] = useState({ email: "", password: "" });
+
   useEffect(() => {
-    // createToken();
+    console.log(token);
   }, []);
-  useEffect(() => {
-    // console.log(token);
-    // console.log(loginState);
-  }, [loginState]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    createToken();
+  };
 
   const handleInputChange = (e) => {
     setLoginState({ ...loginState, [e.target.name]: e.target.value });
@@ -18,7 +20,7 @@ const Login = () => {
   return (
     <main className={"form-container"}>
       <h1>Login</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="email">Email</label>
         <input
           type="email"

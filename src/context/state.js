@@ -57,27 +57,16 @@ const stateContext = ({ children }) => {
       //   `https://www.themoviedb.org/authenticate/${token}`
       // );
       /**/
-      const data = {
-        request_token: token,
-        username: "johnny_appleseed",
-        password: "test123",
-      };
-
-      fetch(`https://www.themoviedb.org/authenticate/${token}`)
-        .then((data) => console.log(data))
-        .catch((err) => console.log(err));
-
       // dispatch({
       //   type: "ASK_PERMISSION",
       //   payload: data,
       // });
-
       /**/
     } catch (error) {
       console.log(error);
     }
   };
-
+  //Data that is available for all their children components
   const contextValue = {
     popular: state.popular,
     token: state.token,

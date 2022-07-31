@@ -1,8 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render } from "@testing-library/react";
+import App from "../App";
+import Header from "../components/layout/Header";
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+describe("Testing", () => {
+  test("renders content", async () => {
+    const comp = render(<App />);
+    console.log(comp);
+    // const res = comp.getByText("HOME");
+    // expect(res).toBeInTheDocument();
+  });
 });

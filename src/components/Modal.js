@@ -1,5 +1,6 @@
 import ReactDOM from "react-dom";
 import { MdCancel } from "react-icons/md";
+//Styles of Modal component
 const MODAL_STYLES = {
   position: "fixed",
   top: "50%",

@@ -7,19 +7,20 @@ import { URL_API, API_KEY } from "../../utils/contants";
 const usePopularMovies = () => {
   const { getPopularMovies, page } = useContext(Context);
 
-  async function getPages() {
+  //Fetch popular movies by page
+  async function getMovies() {
     try {
       const { data } = await axios(
         `${URL_API}/movie/popular?api_key=${API_KEY}&language=en-US&page=${page}`
       );
+      //update in context
       getPopularMovies(data.results);
     } catch (error) {
       console.log(error);
     }
   }
-
   useEffect(() => {
-    getPages();
+    getMovies();
   }, [page]);
 };
 

@@ -1,7 +1,7 @@
 .navbar{
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: .6rem 5%;
     align-items: center;
 
     .active{
@@ -37,9 +37,6 @@
     border: 2px solid $secondary-color;
     cursor: pointer;
     transition: border .6s;
-  }
-  .login{
-
   }
 }
 }

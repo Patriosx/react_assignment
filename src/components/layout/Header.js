@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Login from "../../pages/Login";
 import Modal from "../Modal";
 import { RiLoginCircleFill } from "react-icons/ri";
 const Header = () => {
+  //control open/close of Modal Component
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
@@ -11,11 +12,12 @@ const Header = () => {
         <NavLink activeclassname="active" to={"/"}>
           home
         </NavLink>
-        <div className="btn_login-container">
-          <div className="login" onClick={() => setIsOpen(true)}>
-            <RiLoginCircleFill fill="#transparent" />
-            <span>LOGIN</span>
-          </div>
+        <div
+          className="login btn_login-container"
+          onClick={() => setIsOpen(true)}
+        >
+          <RiLoginCircleFill fill="#transparent" />
+          <span>LOGIN</span>
         </div>
       </div>
 

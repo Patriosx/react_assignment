@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import DetailsView from "./pages/DetailsView";
 import usePopularMovies from "./components/hooks/usePopularMovies";
 function App() {
+  //initial fetch of movies
   usePopularMovies();
   return (
     <div className="App">

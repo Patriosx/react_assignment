@@ -14,16 +14,17 @@ export default (state, action) => {
         ...state,
         page: payload,
       };
-    case "GET_TOKEN":
-      return {
-        ...state,
-        token: payload,
-      };
     case "SELECT_MOVIE":
       return {
         ...state,
         movieSelected: payload,
       };
+    case "GET_TOKEN":
+      return {
+        ...state,
+        token: payload,
+      };
+
     default:
       return state;
   }
